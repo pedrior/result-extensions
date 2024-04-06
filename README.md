@@ -1,4 +1,7 @@
 [![Build Workflow Status](https://img.shields.io/github/actions/workflow/status/pedrior/result-extensions/build.yml?label=build)](https://github.com/pedrior/result-extensions/actions/workflows/build.yml)
+[![ResultExtensions Nuget Package](https://img.shields.io/nuget/v/ResultExtensions?label=ResultExtensions)](https://www.nuget.org/packages/ResultExtensions)
+[![ResultExtensions.AspNetCore Nuget Package](https://img.shields.io/nuget/v/ResultExtensions.AspNetCore?label=ResultExtensions.AspNetCore)](https://www.nuget.org/packages/ResultExtensions.AspNetCore)
+[![ResultExtensions.FluentAssertions Nuget Package](https://img.shields.io/nuget/v/ResultExtensions.FluentAssertions?label=ResultExtensions.FluentAssertions)](https://www.nuget.org/packages/ResultExtensions.FluentAssertions)
 
 # Result Extensions
 
