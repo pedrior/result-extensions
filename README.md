@@ -1,3 +1,5 @@
+[![Build Workflow Status](https://img.shields.io/github/actions/workflow/status/pedrior/result-extensions/build.yml?label=build)](https://github.com/pedrior/result-extensions/actions/workflows/build.yml)
+
 # Result Extensions
 
 A extremely simple library providing a discriminated union type powered with fluent extensions for .NET.
