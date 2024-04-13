@@ -74,9 +74,9 @@ public readonly struct Error : IEquatable<Error>
     public static Error Failure(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.Failure, message ?? ErrorType.Failure.Message, code, details);
+        return new Error(ErrorType.Failure, message ?? ErrorType.Failure.Message, code, details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -91,9 +91,10 @@ public readonly struct Error : IEquatable<Error>
     public static Error Validation(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.Validation, message ?? ErrorType.Validation.Message, code, details);
+        return new Error(ErrorType.Validation, message ?? ErrorType.Validation.Message, code,
+            details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -108,9 +109,10 @@ public readonly struct Error : IEquatable<Error>
     public static Error Conflict(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.Conflict, message ?? ErrorType.Conflict.Message, code, details);
+        return new Error(ErrorType.Conflict, message ?? ErrorType.Conflict.Message, code,
+            details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -125,9 +127,10 @@ public readonly struct Error : IEquatable<Error>
     public static Error NotFound(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.NotFound, message ?? ErrorType.NotFound.Message, code, details);
+        return new Error(ErrorType.NotFound, message ?? ErrorType.NotFound.Message, code,
+            details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -142,9 +145,10 @@ public readonly struct Error : IEquatable<Error>
     public static Error Unauthorized(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.Unauthorized, message ?? ErrorType.Unauthorized.Message, code, details);
+        return new Error(ErrorType.Unauthorized, message ?? ErrorType.Unauthorized.Message, code,
+            details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -159,9 +163,10 @@ public readonly struct Error : IEquatable<Error>
     public static Error Forbidden(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.Forbidden, message ?? ErrorType.Forbidden.Message, code, details);
+        return new Error(ErrorType.Forbidden, message ?? ErrorType.Forbidden.Message, code,
+            details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -176,9 +181,10 @@ public readonly struct Error : IEquatable<Error>
     public static Error Unavailable(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.Unavailable, message ?? ErrorType.Unavailable.Message, code, details);
+        return new Error(ErrorType.Unavailable, message ?? ErrorType.Unavailable.Message, code,
+            details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -193,9 +199,9 @@ public readonly struct Error : IEquatable<Error>
     public static Error Locked(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.Locked, message ?? ErrorType.Locked.Message, code, details);
+        return new Error(ErrorType.Locked, message ?? ErrorType.Locked.Message, code, details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -210,9 +216,10 @@ public readonly struct Error : IEquatable<Error>
     public static Error Unexpected(
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(ErrorType.Unexpected, message ?? ErrorType.Unexpected.Message, code, details);
+        return new Error(ErrorType.Unexpected, message ?? ErrorType.Unexpected.Message, code,
+            details?.ToFrozenDictionary());
     }
 
     /// <summary>
@@ -229,9 +236,9 @@ public readonly struct Error : IEquatable<Error>
         ErrorType type,
         string? message = null,
         string? code = null,
-        FrozenDictionary<string, object?>? details = null)
+        Dictionary<string, object?>? details = null)
     {
-        return new Error(type, message ?? type.Message, code, details);
+        return new Error(type, message ?? type.Message, code, details?.ToFrozenDictionary());
     }
 
     /// <summary>

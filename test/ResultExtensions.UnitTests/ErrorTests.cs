@@ -1,5 +1,3 @@
-using System.Collections.Frozen;
-
 namespace ResultExtensions.UnitTests;
 
 [TestSubject(typeof(Error))]
@@ -8,11 +6,11 @@ public sealed class ErrorTests
     private const string ErrorCode = "lorem-ipsum";
     private const string ErrorMessage = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
-    private static readonly FrozenDictionary<string, object?> ErrorDetails = new Dictionary<string, object?>
+    private static readonly Dictionary<string, object?> ErrorDetails = new()
     {
         { "key1", "value1" },
         { "key2", "value2" }
-    }.ToFrozenDictionary();
+    };
 
     [Fact]
     public void Failure_WhenCalled_ShouldCreateFailureError()
