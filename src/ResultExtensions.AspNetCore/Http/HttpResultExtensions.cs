@@ -23,17 +23,27 @@ public static partial class HttpResultExtensions
         }
 
         var error = errors[0];
+        var errorDict = new Dictionary<string, object>
+        {
+            ["message"] = error.Message
+        };
+        
+        if (error.Code is not null)
+        {
+            errorDict["code"] = error.Code;
+        }
+        
+        if (error.Details is not null)
+        {
+            errorDict["details"] = error.Details;
+        }
+        
         return Results.Problem(
             statusCode: GlobalErrorMappings.Default.GetStatusCodeForErrorType(error.Type),
             extensions: new Dictionary<string, object?>
             {
                 ["trace_id"] = Activity.Current?.Id ?? context?.TraceIdentifier,
-                ["errors"] = new
-                {
-                    message = error.Message,
-                    code = error.Code,
-                    details = error.Details
-                }
+                ["errors"] = new object[] { errorDict }
             });
     }
 
