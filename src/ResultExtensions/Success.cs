@@ -1,11 +1,8 @@
-using System.Text.Json.Serialization;
-
 namespace ResultExtensions;
 
 /// <summary>
 /// Represents a successful value.
 /// </summary>
-[JsonConverter(typeof(SuccessJsonConverter))]
 public readonly struct Success : IEquatable<Success>
 {
     private static readonly Success Instance = new();
