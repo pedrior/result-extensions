@@ -71,6 +71,15 @@ public static class HttpResultExtensions
     }
 
     private static IHttpResult ValidationProblem(ImmutableArray<Error> errors) =>
-        Results.ValidationProblem(errors.ToValidationErrorsDictionary(),
+        Results.ValidationProblem(CreateValidationErrorsDictionary(errors),
             statusCode: GlobalErrorMappings.Default.GetStatusCodeForErrorType(ErrorType.Validation));
+    
+    private static IDictionary<string, string[]> CreateValidationErrorsDictionary(ImmutableArray<Error> errors)
+    {
+        return errors
+            .GroupBy(e => string.IsNullOrWhiteSpace(e.Code) ? "failure" : e.Code)
+            .ToDictionary(g => g.Key, g => g
+                .Select(e => e.Message)
+                .ToArray());
+    }
 }
