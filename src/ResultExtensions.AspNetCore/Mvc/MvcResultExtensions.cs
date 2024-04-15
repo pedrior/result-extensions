@@ -45,15 +45,13 @@ public static class MvcResultExtensions
         }
 
         var error = errors[0];
-        var errorDict = new Dictionary<string, object>
-        {
-            ["message"] = error.Message
-        };
-
+        var errorDict = new Dictionary<string, object>();
         if (error.Code is not null)
         {
             errorDict["code"] = error.Code;
         }
+        
+        errorDict["message"] = error.Message;
 
         if (error.Details is not null)
         {
