@@ -55,10 +55,12 @@ public sealed class ResultAssertions<T> : ReferenceTypeAssertions<Result<T>, Res
         string because = "",
         params object[] becauseArgs)
     {
-        Execute.Assertion
-            .ForCondition(Subject.IsSuccess)
-            .BecauseOf(because, becauseArgs)
-            .FailWith("Expected {context:IsSuccess} to be {0}, but found {1}.", true, false);
+        if (Subject.IsFailure)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .FailWith("Expected a success result, but found a failure result with errors: {0}.", Subject.Errors);
+        }
 
         return new AndWhichConstraint<ResultAssertions<T>, Result<T>>(this, Subject);
     }
@@ -98,10 +100,12 @@ public sealed class ResultAssertions<T> : ReferenceTypeAssertions<Result<T>, Res
         string because = "",
         params object[] becauseArgs)
     {
-        Execute.Assertion
-            .ForCondition(Subject.IsFailure)
-            .BecauseOf(because, becauseArgs)
-            .FailWith("Expected {context:IsFailure} to be {0}, but found {1}.", true, false);
+        if (Subject.IsSuccess)
+        {
+            Execute.Assertion
+                .BecauseOf(because, becauseArgs)
+                .FailWith("Expected a failure result, but found a success result with value: {0}.", Subject.Value);
+        }
 
         return new AndWhichConstraint<ResultAssertions<T>, Result<T>>(this, Subject);
     }
