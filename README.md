@@ -5,7 +5,7 @@
 
 # Result Extensions
 
-A extremely simple library providing a discriminated union type powered with fluent extensions for .NET.
+A extremely simple library that provides a discriminated union type enhanced with fluent extensions for .NET.
 
 ## Introduction
 
@@ -36,7 +36,7 @@ and understand. They can lead to non-linear code execution paths, which may comp
 - __Testing__: Testing code that throws exceptions can be challenging, as you need to set up the test environment to
   trigger or bypass the exception. This can make it harder to write unit tests and verify the behavior of the code.
 
-The Result pattern is an alternative approach to error handling that addresses some of these issues. Instead of throwing
+The Result pattern is an alternative approach to error handling that addresses these issues. Instead of throwing
 exceptions, a method returns a result object that encapsulates the outcome of the operation. This result object can
 represent either a successful result or an error, along with additional information about the error. By making the error
 explicit, the Result pattern can help improve code performance, readability, maintainability, and testability.
