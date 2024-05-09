@@ -5,7 +5,7 @@
 
 # Result Extensions
 
-A extremely simple library that provides a discriminated union type enhanced with fluent extensions for .NET.
+A extremely simple library that provides a discriminated union type enhanced with fluent extensions for .NET. This project is completely based on [Amichai Mantinband's ErrorOr](https://github.com/amantinband/error-or).
 
 ## Introduction
 
